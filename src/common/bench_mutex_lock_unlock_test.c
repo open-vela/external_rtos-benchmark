@@ -55,7 +55,7 @@ static const char *report_strings[NUM_TIMES] = {
 /**
  * @brief Reset time statistics
  */
-static void reset_time_stats()
+static void reset_time_stats(void)
 {
 	for (unsigned i = 0; i < NUM_TIMES; i++) {
 		bench_stats_reset(&times[i]);

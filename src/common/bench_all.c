@@ -27,7 +27,7 @@ void bench_all(void *arg)
 }
 
 #if RTOS_HAS_MAIN_ENTRY_POINT
-int main(void)
+int main(int argc, char *argv[])
 {
 	bench_test_init(bench_all);
 	return 0;
