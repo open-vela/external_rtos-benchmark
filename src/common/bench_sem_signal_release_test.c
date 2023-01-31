@@ -18,7 +18,7 @@ static struct bench_stats give_times;
  *
  * Repeatedly give and then take semaphore and calculate average time.
  */
-void bench_sem_signal_release()
+void bench_sem_signal_release(void)
 {
 	int i;
 	unsigned int diff;
