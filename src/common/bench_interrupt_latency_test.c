@@ -135,6 +135,7 @@ void bench_interrupt_latency_test(void *arg)
 
 	bench_thread_set_priority(MAIN_THREAD_PRIORITY);
 
+	run_thread_low = true;
 	bench_thread_create(THREAD_LOW, "thread_low",
 			    MAIN_THREAD_PRIORITY + 1, bench_thread_low, NULL);
 	bench_thread_start(THREAD_LOW);
