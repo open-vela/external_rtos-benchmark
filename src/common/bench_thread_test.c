@@ -182,6 +182,9 @@ static void gather_set2_stats(int priority, uint32_t iteration)
 			   bench_timing_cycles_get(&start, &helper_end),
 			   iteration);
 #endif
+
+	bench_thread_join(THREAD_HIGH);
+	bench_thread_join(THREAD_SPAWN);
 }
 
 /**
@@ -273,6 +276,9 @@ static void gather_set1_stats(int priority, uint32_t iteration)
 
 	bench_thread_abort(THREAD_SPAWN);
 #endif
+
+	bench_thread_join(THREAD_LOW);
+	bench_thread_join(THREAD_SPAWN);
 }
 
 /**

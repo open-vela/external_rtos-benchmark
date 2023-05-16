@@ -198,6 +198,8 @@ static void gather_unpend_stats(int priority, uint32_t iteration)
 	/* Restore current thread priority */
 
 	bench_thread_set_priority(priority);
+
+	bench_thread_join(THREAD_LOW);
 }
 
 /**
@@ -226,6 +228,8 @@ static void gather_unpend_inheritance_stats(int priority, uint32_t iteration)
 	bench_stats_update(&times[TIME_TO_UNPEND_PRI_INH],
 			   bench_timing_cycles_get(&start, &helper_end),
 			   iteration);
+
+	bench_thread_join(THREAD_HIGH);
 }
 
 /**
@@ -323,6 +327,9 @@ static void gather_pend_stats(int priority, uint32_t iteration)
 	/* Step 9 */
 
 	bench_thread_set_priority(priority);
+
+	bench_thread_join(THREAD_LOW);
+	bench_thread_join(THREAD_HIGH);
 }
 
 /**
@@ -366,6 +373,8 @@ static void gather_pend_inheritance_stats(int priority, uint32_t iteration)
 	bench_stats_update(&times[TIME_TO_PEND_PRI_INH],
 			   bench_timing_cycles_get(&helper_start, &end),
 			   iteration);
+
+	bench_thread_join(THREAD_HIGH);
 }
 
 /**
