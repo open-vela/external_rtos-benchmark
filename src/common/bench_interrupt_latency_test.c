@@ -176,6 +176,8 @@ void bench_interrupt_latency_test(void *arg)
 	bench_thread_set_priority(MAIN_THREAD_PRIORITY + 2);
 	bench_thread_set_priority(MAIN_THREAD_PRIORITY);
 
+	bench_thread_join(THREAD_LOW);
+
 	report_stats();
 }
 

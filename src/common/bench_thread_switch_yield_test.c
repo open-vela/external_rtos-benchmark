@@ -93,6 +93,8 @@ static void gather_set2_stats(int priority, uint32_t iteration)
 	 * Abort lower priority thread, it's done its job.
 	 */
 	bench_thread_abort(THREAD_HELPER);
+
+	bench_thread_join(THREAD_HELPER);
 }
 
 /**
@@ -137,6 +139,8 @@ static void gather_set1_stats(int priority, uint32_t iteration)
 	 * Abort lower priority thread, it's done its job.
 	 */
 	bench_thread_abort(THREAD_LOW);
+
+	bench_thread_join(THREAD_LOW);
 }
 
 /**

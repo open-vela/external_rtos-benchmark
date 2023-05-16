@@ -89,6 +89,10 @@ void bench_thread_abort(int thread_id)
 	k_thread_abort(&threads[thread_id]);
 }
 
+void bench_thread_join(int thread_id)
+{
+}
+
 void bench_yield(void)
 {
 	k_yield();

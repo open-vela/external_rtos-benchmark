@@ -224,6 +224,10 @@ void bench_thread_abort(int thread_id)
 	vTaskDelete(threads[thread_id]);
 }
 
+void bench_thread_join(int thread_id)
+{
+}
+
 void bench_yield(void)
 {
 	taskYIELD();

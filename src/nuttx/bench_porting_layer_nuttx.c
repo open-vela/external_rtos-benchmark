@@ -84,6 +84,12 @@ void bench_thread_abort(int thread_id)
   pthread_cancel(g_bench_threads[thread_id]);
 }
 
+void bench_thread_join(int thread_id)
+{
+  void *result;
+  pthread_join(g_bench_threads[thread_id], &result);
+}
+
 void bench_thread_exit(void)
 {
   pthread_exit(NULL);
