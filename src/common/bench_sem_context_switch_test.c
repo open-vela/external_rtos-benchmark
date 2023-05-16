@@ -59,6 +59,7 @@ void bench_sem_context_switch_low_prio_give(int priority, int iteration)
 	diff = bench_timing_cycles_get(&timestamp_start_sema_g_c,
 				       &timestamp_end_sema_g_c);
 	bench_stats_update(&give_times, diff, iteration);
+	bench_thread_join(1);
 }
 
 /**

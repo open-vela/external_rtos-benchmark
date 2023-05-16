@@ -114,6 +114,13 @@ void bench_thread_abort(int thread_id);
 void bench_thread_exit(void);
 
 /**
+ * @brief Join a thread
+ *
+ * This routine await termination of another thread.
+ */
+void bench_thread_join(int thread_id);
+
+/**
  * @brief Yield the current thread
  *
  * This routine causes the current thread to yield execution to another thread of
