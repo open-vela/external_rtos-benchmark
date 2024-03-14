@@ -35,7 +35,7 @@ void bench_stats_report_title(const char *title)
 
 void bench_stats_report_line(const char *summary, const struct bench_stats *stats)
 {
-	PRINTF(" %-40s: %6llu, %6llu, %6llu\n\r", summary,
+	PRINTF(" %-40s: %"PRIu64", %"PRIu64", %"PRIu64"\n\r", summary,
 	       bench_timing_cycles_to_ns(stats->avg),
 	       bench_timing_cycles_to_ns(stats->min),
 	       bench_timing_cycles_to_ns(stats->max));
