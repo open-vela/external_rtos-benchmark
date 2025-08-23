@@ -28,6 +28,7 @@ static struct bench_stats give_times;
 void bench_sem_context_switch_high_prio_take(void *args)
 {
 	ARG_UNUSED(args);
+	bench_sem_take(0);
 
 	timestamp_start_sema_t_c = bench_timing_counter_get();
 	bench_sem_take(0);
@@ -49,6 +50,9 @@ void bench_sem_context_switch_low_prio_give(int priority, int iteration)
 			    bench_sem_context_switch_high_prio_take, NULL);
 	bench_thread_start(1);
 
+	/* Ensure the high priority thread already launched */
+
+	bench_sem_give(0);
 	timestamp_end_sema_t_c = bench_timing_counter_get();
 	diff = bench_timing_cycles_get(&timestamp_start_sema_t_c,
 				       &timestamp_end_sema_t_c);
