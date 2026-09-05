@@ -78,7 +78,10 @@ bench_time_t bench_timer_isr_expiry_set(uint32_t usec)
 bench_time_t bench_timer_cycles_diff(bench_time_t trigger,
                                      bench_time_t sample)
 {
-  return sample - trigger;
+  uint32_t trigger_count = (uint32_t)trigger;
+  uint32_t sample_count = (uint32_t)sample;
+
+  return (uint32_t)(sample_count - trigger_count);
 }
 
 bench_time_t bench_timer_cycles_get(void)
